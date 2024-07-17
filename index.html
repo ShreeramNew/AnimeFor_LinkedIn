@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            background-color: grey;
+            cursor: pointer;
+        }
+        .round{
+            width:30px;
+            height:30px;
+            border:5px solid red;
+            border-radius:50%;
+            position: absolute;
+            visibility: hidden;
+            animation: move 1s linear infinite;
+        }
+
+        @keyframes move {
+            from{
+                transform: scale(0.5);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="round">
+
+    </div>
+    <script>
+        let round=document.querySelector('.round');
+
+        document.addEventListener("mousedown",(event)=>{
+            round.style.left=event.clientX-15+"px";
+            round.style.top=event.clientY-15+"px";
+            round.style.visibility="visible";
+
+        })
+
+        document.addEventListener("mouseup",()=>{
+            round.style.visibility="hidden";
+        })
+    </script>
+</body>
+</html>
